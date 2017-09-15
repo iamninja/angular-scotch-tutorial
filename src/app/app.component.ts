@@ -14,4 +14,11 @@ export class AppComponent {
     { id: 26, name: 'Serspan', username: 'iwasninja' },
     { id: 27, name: 'LeHam', username: 'lexamlexam' }
   ];
+
+  activeUser;
+
+  selectUser(user) {
+    this.activeUser = user;
+    console.log(this.activeUser);
+  }
 }
