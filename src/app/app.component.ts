@@ -9,6 +9,7 @@ import { User } from './shared/models/user';
 export class AppComponent {
   // tslint:disable-next-line:no-inferrable-types
   message: string = 'Hello!!';
+  title = 'app';
 
   users: User[] = [
     { id: 25, name: 'Vagios', username: 'iamninja' },
@@ -21,5 +22,9 @@ export class AppComponent {
   selectUser(user: User) {
     this.activeUser = user;
     console.log(this.activeUser);
+  }
+
+  onUserCreated(event) {
+    this.users.push(event.user);
   }
 }

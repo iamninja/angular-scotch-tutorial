@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { User } from '../shared/models/user';
 
@@ -9,6 +9,7 @@ import { User } from '../shared/models/user';
 })
 export class UserFormComponent implements OnInit {
 
+  @Output() userCreated = new EventEmitter();
   newUser: User = new User();
   active: boolean = true;
 
@@ -18,7 +19,7 @@ export class UserFormComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.newUser);
+    this.userCreated.emit({ user: this.newUser });
 
     this.newUser = new User();
     // Workaround to reset the form after submit
